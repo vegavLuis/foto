@@ -1,31 +1,10 @@
 <template>
   <div>
-    <!-- <v-carousel height="100%" hide-delimiter-background>
-      <v-carousel-item
-        v-for="(item, i) in items"
-        :key="i"
-        reverse-transition="fade-transition"
-        :src="item.src"
-        cover
-        class="carrusel"
-      >
-      </v-carousel-item>
-      <h1 class="imagen-carrusel-opacidad text-center">
-        CADA MOMENTO ES HERMOSO
-      </h1>
-      <div class="boton-flotante-carrusel">
-        <v-btn elevation="2" class="boton black--text">
-          <h3 class="letra-boton">Normal</h3>
-        </v-btn>
-      </div>
-    </v-carousel> -->
     <v-carousel height="auto" width="auto">
       <v-carousel-item
         class="carrusel"
         v-for="(item, i) in items"
         :key="i"
-        reverse-transition="fade-transition"
-        transition="fade-transition"
       >
         <v-img
           :lazy-src="item.src"
