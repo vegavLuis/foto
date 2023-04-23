@@ -3,8 +3,17 @@
     <v-card>
       <v-row no-gutters>
         <v-col cols="12" md="6" v-for="imagen in images" :key="imagen.id">
-          <v-card color="white" class="mr-4 ml-4 mt-4">
-            <v-img :src="imagen.ima"></v-img>
+          <v-card
+            color="white"
+            class="mr-2 ml-2 mt-2"
+            width="95%"
+            height="95%"
+            elevation="0"
+          >
+            <v-img
+              :src="imagen.ima"
+              height="95%"
+            ></v-img>
           </v-card>
         </v-col>
       </v-row>
@@ -37,4 +46,8 @@ export default {
   methods: {},
 };
 </script>
-<style scoped></style>
+<style scoped>
+.imagenes{
+  object-fit: contain;
+}
+</style>
