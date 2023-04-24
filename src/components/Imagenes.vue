@@ -7,11 +7,12 @@
           md="6"
           v-for="imagenes in images"
           :key="imagenes.index"
+          class="mb-2"
         >
-          <v-card color="white" class="mr-2 ml-2 mt-2" elevation="0">
+          <v-card color="white" class="mr-2 ml-2 mt-2">
             <!-- lazy-src="@/assets/imgs/foto3.jpg"
           src="@/assets/imgs/foto3.jpg" -->
-            <v-img :src="imagenes.ima" height="100%"></v-img>
+            <v-img :src="imagenes.ima" height="100%" class=""></v-img>
           </v-card>
         </v-col>
       </v-row>

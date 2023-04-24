@@ -3,6 +3,7 @@
     <Carrusel/>
     <InfoTextos/>
     <Imagenes/>
+    <Contacto/>
   </div>
 </template>
 
@@ -10,12 +11,14 @@
 import Carrusel from '@/components/Carrusel'
 import InfoTextos from '@/components/InfoTextos';
 import Imagenes from '@/components/Imagenes'
+import Contacto from '@/components/Contacto'
 export default {
   name: "Home",
   components: {
     Carrusel,
     InfoTextos,
-    Imagenes
+    Imagenes,
+    Contacto
   },
 };
 </script>
