@@ -44,7 +44,7 @@
               label="Mensaje"
             ></v-textarea>
           </v-col>
-          <v-btn color="success" class="ml-4"> Enviar </v-btn>
+          <v-btn color="success" class="ml-4 mb-8"> Enviar </v-btn>
         </v-row>
       </v-form>
     </v-card>

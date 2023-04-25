@@ -4,6 +4,7 @@
     <InfoTextos/>
     <Imagenes/>
     <Contacto/>
+    <Footer/>
   </div>
 </template>
 
@@ -12,13 +13,15 @@ import Carrusel from '@/components/Carrusel'
 import InfoTextos from '@/components/InfoTextos';
 import Imagenes from '@/components/Imagenes'
 import Contacto from '@/components/Contacto'
+import Footer from '@/components/Footer'
 export default {
   name: "Home",
   components: {
     Carrusel,
     InfoTextos,
     Imagenes,
-    Contacto
+    Contacto,
+    Footer
   },
 };
 </script>
