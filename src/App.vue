@@ -1,5 +1,19 @@
 <template>
   <v-app>
+    <v-overlay
+      :value="overlay"
+      :opacity="opacity"
+      :absolute="absolute"
+      class="overlay"
+    >
+     <v-progress-circular
+      :size="50"
+      color="primary"
+      indeterminate
+      class="progres"
+    ></v-progress-circular>
+    </v-overlay>
+   
     <AppBarVue />
     <v-main>
       <router-view />
@@ -15,8 +29,21 @@ export default {
     AppBarVue,
   },
   data: () => ({
-    //
+    overlay: false,
+    opacity: 1,
+    absolute: true,
   }),
+  created() {
+    this.overlay = true;
+  },
+  watch: {
+    overlay(val) {
+      val &&
+        setTimeout(() => {
+          this.overlay = false;
+        }, 2000);
+    },
+  },
 };
 </script>
 <style>
@@ -51,6 +78,14 @@ h6 {
 .small {
   font-family: "Josefin Sans", sans-serif !important;
   font-size: 13px !important;
+}
+.overlay {
+  z-index: 200 !important;
+  widows: 50% !important;
+  height: 30% !important;
+}
+.progres {
+  z-index: 300 !important;
 }
 @media screen and (max-width: 700px) {
   h1 {
