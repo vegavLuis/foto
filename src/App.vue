@@ -41,10 +41,10 @@
     class="navi"
     floating
     >
-    <v-list nav dense >
+    <v-list nav dense class="mt-4">
         <v-list-item-group
           v-model="group"
-          active-class="deep-purple--text text--accent-4"
+          active-class="#F5F5F5 text--accent-4"
           v-for="menu in menus"
           :key="menu.index"
         >
