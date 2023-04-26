@@ -13,25 +13,69 @@
         class="progres"
       ></v-progress-circular> -->
     </v-overlay>
+    <v-card class="mx-auto overflow-hidden">
+      <v-toolbar elevation="4" color="#EAEAEA">
+        <v-app-bar-nav-icon>
+          <v-img src="@/assets/imgs/foto1.jpg" class="img" contain></v-img>
+        </v-app-bar-nav-icon>
+        <v-spacer></v-spacer>
+        <v-app-bar-nav-icon
+          @click.stop="drawer = !drawer"
+          class="hidden-md-and-up"
+        ></v-app-bar-nav-icon>
+        <v-btn
+          plain
+          v-for="menu in menus"
+          :key="menu.index"
+          class="hidden-sm-and-down text-center"
+        >
+          <h6>
+            {{ menu.title }}
+          </h6>
+        </v-btn>
+      </v-toolbar>
 
-    <AppBarVue />
-    <v-main>
-      <router-view />
-    </v-main>
+      <v-navigation-drawer v-model="drawer" absolute temporary class="navi">
+        <v-list nav dense>
+          <v-list-item-group
+            v-model="group"
+            active-class="deep-purple--text text--accent-4"
+            v-for="menu in menus"
+          :key="menu.index"
+          >
+            <v-list-item>
+              <v-list-item-title>{{ menu.title }}</v-list-item-title>
+            </v-list-item>
+          </v-list-item-group>
+        </v-list>
+      </v-navigation-drawer>
+
+      <v-main>
+        <router-view />
+      </v-main>
+    </v-card>
   </v-app>
 </template>
 
 <script>
-import AppBarVue from "./components/AppBar.vue";
 export default {
   name: "App",
   components: {
-    AppBarVue,
   },
   data: () => ({
     overlay: false,
     opacity: 1,
     absolute: true,
+    drawer: false,
+    group: null,
+    menus: [
+      { title: "Home" },
+      { title: "Pages" },
+      { title: "Portafolio" },
+      { title: "Galeria" },
+      { title: "Blog" },
+      { title: "Contacto" },
+    ],
   }),
   created() {
     this.overlay = true;
@@ -43,10 +87,22 @@ export default {
           this.overlay = false;
         }, 2000);
     },
+    group() {
+      this.drawer = false;
+    },
   },
 };
 </script>
 <style>
+.navi {
+  z-index: 300;
+}
+.img {
+  margin-left: 20px;
+  max-height: 50px;
+  max-width: 70px;
+  overflow: hidden;
+}
 h1 {
   font-family: "Josefin Sans", sans-serif !important;
   font-size: 47px !important;
