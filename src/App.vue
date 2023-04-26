@@ -6,14 +6,14 @@
       :absolute="absolute"
       class="overlay"
     >
-     <v-progress-circular
-      :size="50"
-      color="primary"
-      indeterminate
-      class="progres"
-    ></v-progress-circular>
+      <!-- <v-progress-circular
+        :size="50"
+        color="primary"
+        indeterminate
+        class="progres"
+      ></v-progress-circular> -->
     </v-overlay>
-   
+
     <AppBarVue />
     <v-main>
       <router-view />
@@ -81,12 +81,14 @@ h6 {
 }
 .overlay {
   z-index: 200 !important;
-  widows: 50% !important;
-  height: 30% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
-.progres {
+/* .progres {
   z-index: 300 !important;
-}
+  width: 10% !important;
+  height: 10% !important;
+} */
 @media screen and (max-width: 700px) {
   h1 {
     font-size: 23px !important;
