@@ -13,55 +13,60 @@
         class="progres"
       ></v-progress-circular> -->
     </v-overlay>
-    <v-card class="mx-auto overflow-hidden">
-      <v-toolbar elevation="4" color="#EAEAEA">
-        <v-app-bar-nav-icon>
-          <v-img src="@/assets/imgs/foto1.jpg" class="img" contain></v-img>
-        </v-app-bar-nav-icon>
-        <v-spacer></v-spacer>
-        <v-app-bar-nav-icon
-          @click.stop="drawer = !drawer"
-          class="hidden-md-and-up"
-        ></v-app-bar-nav-icon>
-        <v-btn
-          plain
+    <!-- <v-card class="overflow-hidden" height="auto" width="auto"> -->
+    <v-app-bar elevation="4" color="#EAEAEA" fixed class="barra">
+      <v-app-bar-nav-icon>
+        <v-img src="@/assets/imgs/foto1.jpg" class="img" contain></v-img>
+      </v-app-bar-nav-icon>
+      <v-spacer></v-spacer>
+      <v-app-bar-nav-icon
+        @click.stop="drawer = !drawer"
+        class="hidden-md-and-up"
+      ></v-app-bar-nav-icon>
+      <v-btn
+        plain
+        v-for="menu in menus"
+        :key="menu.index"
+        class="hidden-sm-and-down text-center"
+      >
+        <h6>
+          {{ menu.title }}
+        </h6>
+      </v-btn>
+    </v-app-bar>
+    <v-navigation-drawer
+    v-model="drawer"
+    fixed
+    temporary
+    class="navi"
+    floating
+    >
+    <v-list nav dense >
+        <v-list-item-group
+          v-model="group"
+          active-class="deep-purple--text text--accent-4"
           v-for="menu in menus"
           :key="menu.index"
-          class="hidden-sm-and-down text-center"
         >
-          <h6>
-            {{ menu.title }}
-          </h6>
-        </v-btn>
-      </v-toolbar>
-
-      <v-navigation-drawer v-model="drawer" absolute temporary class="navi">
-        <v-list nav dense>
-          <v-list-item-group
-            v-model="group"
-            active-class="deep-purple--text text--accent-4"
-            v-for="menu in menus"
-          :key="menu.index"
-          >
-            <v-list-item>
-              <v-list-item-title>{{ menu.title }}</v-list-item-title>
-            </v-list-item>
-          </v-list-item-group>
-        </v-list>
-      </v-navigation-drawer>
-
-      <v-main>
-        <router-view />
-      </v-main>
-    </v-card>
+          <v-list-item>
+            <v-list-item-title>
+              {{ menu.title }}
+            </v-list-item-title>
+          </v-list-item>
+        </v-list-item-group>
+      </v-list>
+    </v-navigation-drawer>
+    <v-main>
+      <router-view />
+    </v-main>
+    <!-- </v-card> -->
   </v-app>
 </template>
 
 <script>
 export default {
   name: "App",
-  components: {
-  },
+  components: {},
   data: () => ({
     overlay: false,
     opacity: 1,
@@ -94,8 +99,11 @@ export default {
 };
 </script>
 <style>
+.barra {
+  z-index: 190 !important;
+}
 .navi {
-  z-index: 300;
+  z-index: 190 !important;
 }
 .img {
   margin-left: 20px;
