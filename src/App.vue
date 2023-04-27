@@ -23,37 +23,44 @@
         @click.stop="drawer = !drawer"
         class="hidden-md-and-up"
       ></v-app-bar-nav-icon>
-      <v-btn
+      <!-- <v-btn
         plain
         v-for="menu in menus"
         :key="menu.index"
         class="hidden-sm-and-down text-center"
+      > -->
+      <router-link
+        v-for="menu in menus"
+        :key="menu.index"
+        :to="menu.link"
+        style="text-decoration: none; color: inherit"
       >
-        <h6>
-          {{ menu.title }}
-        </h6>
-      </v-btn>
+        <v-btn plain class="hidden-sm-and-down text-center">
+          <v-list-item-title>
+            {{ menu.title }}
+          </v-list-item-title>
+        </v-btn>
+      </router-link>
     </v-app-bar>
-    <v-navigation-drawer
-    v-model="drawer"
-    fixed
-    temporary
-    class="navi"
-    floating
-    >
-    <v-list nav dense class="mt-4">
-        <v-list-item-group
-          v-model="group"
-          active-class="#F5F5F5 text--accent-4"
+    <v-navigation-drawer v-model="drawer" fixed temporary class="navi" floating>
+      <v-list nav dense class="mt-4">
+        <router-link
           v-for="menu in menus"
           :key="menu.index"
+          :to="menu.link"
+          style="text-decoration: none; color: inherit"
         >
-          <v-list-item>
-            <v-list-item-title>
-              {{ menu.title }}
-            </v-list-item-title>
-          </v-list-item>
-        </v-list-item-group>
+          <v-list-item-group
+            v-model="group"
+            active-class="#F5F5F5 text--accent-4"
+          >
+            <v-list-item>
+              <v-list-item-title>
+                {{ menu.title }}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list-item-group>
+        </router-link>
       </v-list>
     </v-navigation-drawer>
     <v-main>
@@ -74,12 +81,12 @@ export default {
     drawer: false,
     group: null,
     menus: [
-      { title: "Home" },
-      { title: "Pages" },
-      { title: "Portafolio" },
-      { title: "Galeria" },
-      { title: "Blog" },
-      { title: "Contacto" },
+      { title: "Home", link: "/" },
+      { title: "Pages", link: "/pages" },
+      { title: "Portafolio", link: "/portafolio" },
+      { title: "Galeria", link: "/galeria" },
+      { title: "Blog", link: "/blog" },
+      { title: "Contacto", link: "/contacto" },
     ],
   }),
   created() {
